@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Medical Devices</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='devices.css') }}">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Medical Devices</h1>
+
+        <form method="GET" action="/devices" class="search-form">
+
+            <input
+                type="text"
+                id="searchInput"
+                name="search"
+                placeholder="Search Medical Device..."
+                onkeyup="searchDevices()">
+
+            <button type="submit">
+
+                Search
+
+            </button>
+
+        </form>
+
+        <div class="device-grid">
+
+            {% for device in devices %}
+
+            <div class="device-card">
+
+                <img
+                    src="{{ device.image if device.image else 'https://via.placeholder.com/300x200?text=Medical+Device' }}"
+                    alt="{{ device.name }}">
+
+                <h2>
+
+                    {{ device.name }}
+
+                </h2>
+
+                <p>
+
+                    <strong>Manufacturer:</strong>
+
+                    {{ device.manufacturer }}
+
+                </p>
+
+                <p>
+
+                    <strong>Category:</strong>
+
+                    {{ device.category }}
+
+                </p>
+
+                <p>
+
+                    <strong>Price:</strong>
+
+                    {{ device.price }}
+
+                </p>
+
+                <a
+                    href="/device/{{ device.id }}"
+                    class="view-btn">
+
+                    View Details
+
+                </a>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='devices.js') }}"></script>
+
+</body>
+
+</html>

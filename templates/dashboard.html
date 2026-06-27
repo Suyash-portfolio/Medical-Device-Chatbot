@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dashboard | AI Medical Device Assistant</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+background:#eef4fb;
+}
+
+.dashboard{
+
+display:flex;
+
+height:100vh;
+
+}
+
+.sidebar{
+
+width:270px;
+
+background:linear-gradient(180deg,#0f172a,#1e3a8a);
+
+color:white;
+
+padding:30px 20px;
+
+display:flex;
+
+flex-direction:column;
+
+}
+
+.logo{
+
+font-size:25px;
+
+font-weight:700;
+
+margin-bottom:50px;
+
+text-align:center;
+
+}
+
+.logo i{
+
+color:#38bdf8;
+
+margin-right:10px;
+
+}
+
+.sidebar a{
+
+color:white;
+
+text-decoration:none;
+
+padding:16px;
+
+margin:6px 0;
+
+border-radius:12px;
+
+transition:.3s;
+
+font-size:16px;
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
+}
+
+.sidebar a:hover{
+
+background:rgba(255,255,255,.15);
+
+transform:translateX(5px);
+
+}
+
+.main{
+
+flex:1;
+
+padding:35px;
+
+overflow:auto;
+
+}
+
+.header{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:35px;
+
+}
+
+.header h1{
+
+font-size:34px;
+
+color:#0f172a;
+
+}
+
+.header p{
+
+color:#64748b;
+
+margin-top:8px;
+
+}
+
+.profile{
+
+width:55px;
+
+height:55px;
+
+border-radius:50%;
+
+background:#2563eb;
+
+color:white;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:22px;
+
+font-weight:bold;
+
+}
+
+.cards{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+
+gap:25px;
+
+margin-bottom:35px;
+
+}
+
+.card{
+
+background:white;
+
+padding:25px;
+
+border-radius:20px;
+
+box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+transition:.3s;
+
+}
+
+.card:hover{
+
+transform:translateY(-8px);
+
+}
+
+.card i{
+
+font-size:35px;
+
+margin-bottom:20px;
+
+color:#2563eb;
+
+}
+
+.card h2{
+
+font-size:18px;
+
+color:#475569;
+
+margin-bottom:10px;
+
+}
+
+.card h1{
+
+font-size:42px;
+
+color:#0f172a;
+
+}
+
+.quick{
+
+margin-top:15px;
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+gap:20px;
+
+}
+
+.action{
+
+background:white;
+
+padding:30px;
+
+border-radius:20px;
+
+text-align:center;
+
+text-decoration:none;
+
+color:#0f172a;
+
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+transition:.3s;
+
+}
+
+.action:hover{
+
+background:#2563eb;
+
+color:white;
+
+transform:translateY(-6px);
+
+}
+
+.action i{
+
+font-size:45px;
+
+margin-bottom:15px;
+
+}
+
+.activity{
+
+margin-top:40px;
+
+background:white;
+
+padding:25px;
+
+border-radius:20px;
+
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.activity h2{
+
+margin-bottom:20px;
+
+color:#0f172a;
+
+}
+
+.activity ul{
+
+list-style:none;
+
+}
+
+.activity li{
+
+padding:15px 0;
+
+border-bottom:1px solid #eee;
+
+color:#475569;
+
+}
+
+.activity li:last-child{
+
+border:none;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+<div class="sidebar">
+
+<div class="logo">
+
+<span>AI Medical Device Chatbot</span>
+
+</div>
+
+<a href="/dashboard">
+
+<i class="fa-solid fa-house"></i>
+
+Dashboard
+
+</a>
+
+<a href="/chatbot">
+
+<i class="fa-solid fa-robot"></i>
+
+AI Chatbot
+
+</a>
+
+<a href="/history">
+
+<i class="fa-solid fa-clock-rotate-left"></i>
+
+Chat History
+
+</a>
+
+<a href="/devices">
+
+<i class="fa-solid fa-microscope"></i>
+
+Medical Devices
+
+</a>
+
+<a href="#">
+
+<i class="fa-solid fa-user"></i>
+
+Profile
+
+</a>
+
+<a href="#">
+
+<i class="fa-solid fa-star"></i>
+
+Feedback
+
+</a>
+
+<a href="/logout">
+
+<i class="fa-solid fa-right-from-bracket"></i>
+
+Logout
+
+</a>
+
+</div>
+
+<div class="main">
+
+<div class="header">
+
+<div>
+
+<h1>
+
+Welcome 👋
+
+</h1>
+
+<p>
+
+AI Medical Device Assistant Dashboard
+
+</p>
+
+</div>
+
+<div class="profile">
+
+{{ session.email[0]|upper if session.email else 'U' }}
+
+</div>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<i class="fa-solid fa-comments"></i>
+
+<h2>Total Chats</h2>
+
+<h1>0</h1>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-laptop-medical"></i>
+
+<h2>Medical Devices</h2>
+
+<h1>250+</h1>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-star"></i>
+
+<h2>Feedback</h2>
+
+<h1>0</h1>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-user-doctor"></i>
+
+<h2>Status</h2>
+
+<h1>Active</h1>
+
+</div>
+
+</div>
+
+<div class="quick">
+
+<a href="/chatbot" class="action">
+
+<i class="fa-solid fa-robot"></i>
+
+<h3>Open Chatbot</h3>
+
+<p>Ask questions about medical devices</p>
+
+</a>
+
+<a href="/history" class="action">
+
+<i class="fa-solid fa-clock-rotate-left"></i>
+
+<h3>Chat History</h3>
+
+<p>View previous conversations</p>
+
+</a>
+
+<a href="/devices" class="action">
+
+<i class="fa-solid fa-microscope"></i>
+
+<h3>Medical Devices</h3>
+
+<p>Browse equipment library</p>
+
+</a>
+
+<a href="/logout" class="action">
+
+<i class="fa-solid fa-right-from-bracket"></i>
+
+<h3>Logout</h3>
+
+<p>Sign out securely</p>
+
+</a>
+
+</div>
+
+<div class="activity">
+
+<h2>
+
+Recent Activity
+
+</h2>
+
+<ul>
+
+<li>✅ Logged into the application</li>
+
+<li>🤖 Ready to start AI conversations</li>
+
+<li>📚 Browse medical devices</li>
+
+<li>📈 Chat statistics will appear here</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
